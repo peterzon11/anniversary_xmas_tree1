@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="xmas-tree.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
     <title>Document</title>
   </head>
   <body>
@@ -195,7 +196,7 @@
     <div class="🌟" style="--rox: -0.13; --roy: -0.17; --roz: 0.2; --sf: 0.67"></div>
     <div class="🌟" style="--rox: -0.05; --roy: 0.12; --roz: 0.18; --sf: 0.88"></div>
     <div class="🌟" style="--rox: 0.18; --roy: -0.18; --roz: -0.04; --sf: 0.92"></div>
-    <div class="��" style="--rox: -0.02; --roy: 0.18; --roz: 0.01; --sf: 0.91"></div>
+    <div class="🌟" style="--rox: -0.02; --roy: 0.18; --roz: 0.01; --sf: 0.91"></div>
     <div class="🌟" style="--rox: 0.08; --roy: 0.07; --roz: 0; --sf: 1"></div>
     <div class="🌟" style="--rox: -0.01; --roy: -0.17; --roz: -0.02; --sf: 0.56"></div>
     <div class="🌟" style="--rox: 0.09; --roy: -0.07; --roz: -0.01; --sf: 0.69"></div>
@@ -214,5 +215,38 @@
     <div class="🌟" style="--rox: -0.17; --roy: -0.07; --roz: -0.13; --sf: 0.66"></div>
     <div class="🌟" style="--rox: 0.01; --roy: -0.05; --roz: -0.17; --sf: 0.77"></div>
   </div>
+  
+  <!-- Add controls at bottom -->
+  <div style="position: fixed; bottom: 15px; left: 50%; transform: translateX(-50%); text-align: center; background: rgba(0,0,0,0.4); padding: 8px; border-radius: 50%; backdrop-filter: blur(8px);">
+    <button onclick="toggleAudio()" id="playBtn" style="background: none; border: none; color: rgba(255,255,255,0.9); font-size: 20px; width: 32px; height: 32px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; padding: 0;">
+      <span class="material-icons-round" style="font-size: 20px;">play_arrow</span>
+    </button>
+  </div>
+
+  <script>
+    const audio = document.querySelector('audio');
+    const playBtn = document.querySelector('#playBtn span');
+    
+    function toggleAudio() {
+      if (audio.paused) {
+        audio.play();
+        playBtn.textContent = 'pause';
+      } else {
+        audio.pause();
+        playBtn.textContent = 'play_arrow';
+      }
+    }
+
+    // hover effect
+    const btn = document.querySelector('button');
+    btn.addEventListener('mouseover', () => {
+      btn.style.transform = 'scale(1.1)';
+      btn.style.color = 'white';
+    });
+    btn.addEventListener('mouseout', () => {
+      btn.style.transform = 'scale(1)';
+      btn.style.color = 'rgba(255,255,255,0.9)';
+    });
+  </script>
   </body>
 </html>
